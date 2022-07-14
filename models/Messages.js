@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const messageSchema = new Schema(
   {
-    image: { type: String },
+    post_image: { type: String },
     user: { type: Schema.Types.ObjectId, ref: "User" },
-    datePosted: { type: Date, required: true },
     text: { type: String, max: 280, required: true },
+    likes: { type: Number },
   },
   { timestamps: true }
 );

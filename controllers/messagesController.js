@@ -2,7 +2,7 @@ const Message = require("../models/Messages");
 
 const listMessages = async (req, res) => {
   try {
-    const messages = await Message.find({});
+    const messages = await Message.find({}).populate("user");
     res.json(messages);
   } catch (error) {
     res.status(500).send(error.message);
@@ -31,8 +31,34 @@ const findMessage = async (req, res) => {
   }
 };
 
+const updateMessage = async (req, res) => {
+  const { id } = req.params;
+  const { key, value } = req.body;
+  try {
+    const { modifiedCount } = await Message.updateOne({ _id: id }, { [key]: value });
+    if (!modifiedCount) return res.status(404).send("User not found");
+    res.send("The message was updated successfully");
+    // console.log(response);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+const deleteMessage = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedMessage = await Message.findOneAndDelete({ _id: id });
+    if (!deletedMessage) return res.status(404).send("Message not found");
+    res.json(deletedMessage);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 module.exports = {
   listMessages,
   createMessage,
   findMessage,
+  updateMessage,
+  deleteMessage,
 };

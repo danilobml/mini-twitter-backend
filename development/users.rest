@@ -6,21 +6,36 @@ POST {{host}}/users
 Content-Type: application/json
 
 {
-    "first_name":  "Brownlee",
-    "last_name": "Marques",
-    "handle": "@MKBHD",
-    "email": "mkbhd@mkbhd.com",
-    "age": 28,
-    "picture": "twitter.com", 
-    "bio": "Web Video Producer, Pro Ultimate Frisbee Player, Host of 
-at WVFRM at TheStudio",
-    "location": "NYC",
+    "first_name":  "William",
+    "last_name": "Wallace",
+    "handle": "@WWallace",
+    "email": "wwallace@scotland.com",
+    "age": 55,
+    "profile_picture": "https://static.wikia.nocookie.net/p__/images/5/5d/William_Wallace.jpg/revision/latest?cb=20131023134151&path-prefix=protagonist", 
+    "background_picture": "https://en.wikipedia.org/wiki/Braveheart#/media/File:Braveheart_imp.jpg",
+    "bio": "I tried to free Scotland",
+    "location": "Falkirk",
+    "followers": 11000,
+    "following": 1
 }
 
-### Get all trainers
+### Get all users
 
 GET {{host}}/users
 
-### Get one trainer
+### Get one user (add id)
 
-# GET {{host}}/users/{{id}}
+GET {{host}}/users/62d07eb5075de0215ebd81c7
+
+### Update one user (add id)
+
+PATCH {{host}}/users/
+Content-Type: application/json
+
+{
+    "key": "last_name",
+    "value": "jjknxslk"
+}
+
+### Delete one user (add id)
+DELETE {{host}}/users/

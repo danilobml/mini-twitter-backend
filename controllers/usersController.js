@@ -31,8 +31,34 @@ const findUser = async (req, res) => {
   }
 };
 
+const updateUser = async (req, res) => {
+  const { id } = req.params;
+  const { key, value } = req.body;
+  try {
+    const { modifiedCount } = await User.updateOne({ _id: id }, { [key]: value });
+    if (!modifiedCount) return res.status(404).send("User not found");
+    res.send("The user was updated successfully");
+    // console.log(response);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+const deleteUser = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedUser = await User.findOneAndDelete({ _id: id });
+    if (!deletedUser) return res.status(404).send("User not found");
+    res.json(deletedUser);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 module.exports = {
   listUsers,
   createUser,
   findUser,
+  updateUser,
+  deleteUser,
 };

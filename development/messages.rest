@@ -1,0 +1,34 @@
+@host = http://localhost:3000
+
+### Create a new message
+
+POST {{host}}/messages
+Content-Type: application/json
+
+{
+    "post_image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/The_Battle_of_Stirling_Bridge.jpg",
+    "user": "62d07eb5075de0215ebd81c7",
+    "text": "The Battle of Stirling Bridge was a battle of the First War of Scottish Independence. On 11 September 1297, the forces of Andrew Moray and William Wallace defeated the combined English forces of John de Warenne, 6th Earl of Surrey, and Hugh de Cressingham near Stirling, on the River Forth.",
+    "likes": 5
+}
+
+### Get all messages
+
+GET {{host}}/messages
+
+### Get one message (add id)
+
+GET {{host}}/messages/
+
+### Update one message (add id)
+
+PATCH {{host}}/messages/
+Content-Type: application/json
+
+{
+    "key": "last_name",
+    "value": "jjknxslk"
+}
+
+### Delete one message (add id)
+DELETE {{host}}/messages/
