@@ -1,0 +1,26 @@
+@host = http://localhost:3000
+
+### Create a new user
+
+POST {{host}}/users
+Content-Type: application/json
+
+{
+    "first_name":  "Brownlee",
+    "last_name": "Marques",
+    "handle": "@MKBHD",
+    "email": "mkbhd@mkbhd.com",
+    "age": 28,
+    "picture": "twitter.com", 
+    "bio": "Web Video Producer, Pro Ultimate Frisbee Player, Host of 
+at WVFRM at TheStudio",
+    "location": "NYC",
+}
+
+### Get all trainers
+
+GET {{host}}/users
+
+### Get one trainer
+
+# GET {{host}}/users/{{id}}
