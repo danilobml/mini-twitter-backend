@@ -20,11 +20,32 @@ const createMessage = async (req, res) => {
   }
 };
 
+// const findMessage = async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const message = await Message.findOne({ id }).populate("user");
+//     if (!message) return res.status(404).send("No message with such name");
+//     res.json(message);
+//   } catch (error) {
+//     res.status(500).send(error.message);
+//   }
+// };
 const findMessage = async (req, res) => {
   const { id } = req.params;
   try {
-    const message = await Message.findOne({ id }).populate("user");
-    if (!message) return res.status(404).send("No team with such name");
+    const message = await Message.findById(id).populate("user");
+    if (!message) return res.status(404).send("No message with such name");
+    res.json(message);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+const findAllUserMessages = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const message = await Message.find({ id }).populate("user");
+    if (!message) return res.status(404).send("No message with such name");
     res.json(message);
   } catch (error) {
     res.status(500).send(error.message);
@@ -61,4 +82,5 @@ module.exports = {
   findMessage,
   updateMessage,
   deleteMessage,
+  findAllUserMessages,
 };
