@@ -44,7 +44,7 @@ const findMessage = async (req, res) => {
 const findAllUserMessages = async (req, res) => {
   const { id } = req.params;
   try {
-    const message = await Message.find({ id }).populate("user");
+    const message = await Message.find({ user: id }).populate("user");
     if (!message) return res.status(404).send("No message with such name");
     res.json(message);
   } catch (error) {
