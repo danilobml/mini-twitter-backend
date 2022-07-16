@@ -6,17 +6,17 @@ POST {{host}}/users
 Content-Type: application/json
 
 {
-    "first_name":  "William",
-    "last_name": "Wallace",
-    "handle": "@WWallace",
-    "email": "wwallace@scotland.com",
-    "age": 55,
-    "profile_picture": "https://static.wikia.nocookie.net/p__/images/5/5d/William_Wallace.jpg/revision/latest?cb=20131023134151&path-prefix=protagonist", 
-    "background_picture": "https://en.wikipedia.org/wiki/Braveheart#/media/File:Braveheart_imp.jpg",
-    "bio": "I tried to free Scotland",
-    "location": "Falkirk",
-    "followers": 11000,
-    "following": 1
+    "first_name":  "Gaivs",
+    "last_name": "Octavianvs Jvlivs Caesar Imperator Princeps Senatus Divi Filivs et Pontifex Maximvs",
+    "handle": "@Iloverome",
+    "email": "emperor@rome.com",
+    "age": 40,
+    "profile_picture": "https://upload.wikimedia.org/wikipedia/commons/6/69/August_com_a_%22Pontifex_maximus%22_%28detall%29_%28finals_s._I_aC%29%2C_Museu_Nacional_Rom%C3%A0_%28Palau_Massimo%29%2C_Roma.jpg", 
+    "background_picture": "https://cdn.thecollector.com/wp-content/uploads/2022/03/roman-temple-augustus-with-sculpture.jpg?width=1200&quality=70",
+    "bio": "I am just a simple guy, with absolute power.",
+    "location": "SPQR",
+    "followers": 1000000000,
+    "following": 0
 }
 
 ### Get all users
@@ -25,7 +25,7 @@ GET {{host}}/users
 
 ### Get one user (add id)
 
-GET {{host}}/users/62d07eb5075de0215ebd81c7
+GET {{host}}/author/62d07eb5075de0215ebd81c7
 
 ### Update one user (add id)
 

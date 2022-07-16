@@ -23,7 +23,18 @@ const createUser = async (req, res) => {
 const findUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findOne({ id });
+    const user = await User.findOne({ _id: id });
+    if (!user) return res.status(404).send("No team with such name");
+    res.json(user);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+const findLoggedUser = async (req, res) => {
+  try {
+    const loggedid = "62d288bafb42143b8fa01989";
+    const user = await User.find({ _id: loggedid });
     if (!user) return res.status(404).send("No team with such name");
     res.json(user);
   } catch (error) {
@@ -61,4 +72,5 @@ module.exports = {
   findUser,
   updateUser,
   deleteUser,
+  findLoggedUser,
 };

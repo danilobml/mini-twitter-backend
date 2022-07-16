@@ -6,10 +6,10 @@ POST {{host}}/messages
 Content-Type: application/json
 
 {
-    "post_image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/The_Battle_of_Stirling_Bridge.jpg",
-    "user": "62d07eb5075de0215ebd81c7",
-    "text": "The Battle of Stirling Bridge was a battle of the First War of Scottish Independence. On 11 September 1297, the forces of Andrew Moray and William Wallace defeated the combined English forces of John de Warenne, 6th Earl of Surrey, and Hugh de Cressingham near Stirling, on the River Forth.",
-    "likes": 5
+    "post_image": "https://upload.wikimedia.org/wikipedia/commons/9/90/Otto_Albert_Koch_Varusschlacht_1909.jpg",
+    "user": "62d27450a34a9d28a71e2c53",
+    "text": "Tutoburg was just German propaganda. We didn't loose in our 'special military operations' in Germania. Quite the opposite, we performed amazingly and obtained strategical victories, despite some tactical setbacks. The Cheruschi are trying to spread a lie. Varvs enjoys my full trust and confidence, as always. Victory to Rome!",
+    "likes": 15000
 }
 
 ### Get all messages
@@ -19,6 +19,9 @@ GET {{host}}/messages
 ### Get one message (add id)
 
 GET {{host}}/messages/
+
+### Get all messages from one user (add id)
+GET {{host}}/messages/author/62d27450a34a9d28a71e2c53
 
 ### Update one message (add id)
 
